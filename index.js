@@ -60,7 +60,7 @@ async function execute(message, serverQueue) {
     } else {
         serverQueue.songs.push(song);
         console.log(serverQueue.songs);
-        return message.channel.send(`${song.title} has been added to the queue!`);
+        return message.channel.send(`**${song.title}** has been added to the queue!`);
     }
 }
 
@@ -111,6 +111,7 @@ function stop(message, serverQueue) {
 
 client.once('ready', () => {
     console.log('Ready!');
+    client.user.setPresence({ activity: { name: 'use ##play'}, status: 'online'});
 });
 
 client.once('reconnecting', () => {
